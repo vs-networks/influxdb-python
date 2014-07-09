@@ -24,19 +24,13 @@ with open(os.path.join(os.path.dirname(__file__),
 with open('requirements.txt', 'r') as f:
     requires = [x.strip() for x in f if x.strip()]
 
-with open('test-requirements.txt', 'r') as f:
-    test_requires = [x.strip() for x in f if x.strip()]
-
 setup(
     name='influxdb',
     version=version,
     description="influxdb client",
     license='MIT',
-    packages=find_packages(exclude=['tests']),
-    test_suite='tests',
-    tests_require=test_requires,
+    packages=find_packages(),
     install_requires=requires,
-    extras_require={'test': test_requires},
     classifiers=(
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
